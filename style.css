@@ -1,3 +1,15 @@
-.container {
-	display: none;
+.sign-up {
+	display : none;
+}
+.account-created {
+	display : none;
+}
+.display{
+	color : red;
+}
+.my-account{
+	display : none;
+}
+.delete-account{
+	display : none;
 }

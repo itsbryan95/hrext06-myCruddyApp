@@ -1,75 +1,91 @@
 $(document).ready(function(){
-  console.log('jQuery loaded');
-  var $body = $('body');
+  var loggedInUserObj = {};
 
-  // write to local storage from input when button save clicked
-  // $('.btn-submit').on('click', function(){
-  //   localStorage.setItem('inputFieldValue', $('.text-entry').val());
-  //   var myItemInStorage = localStorage.getItem('inputFieldValue');
-  //   console.log('myItemInStorage', myItemInStorage);
-
-  //   // display the value here
-  //   $('.list-display-field').text(myItemInStorage); // ??
-
-  // });
-
-  // // delete from local storage when delete button clicked
-  // $('.btn-delete').on('click', function(){
-  //   localStorage.removeItem('inputFieldValue');
-  // });
-
-
-  $('.sign-up').on('click', function(){
+  $('.log-in').on('click', function(){
     $('.start-options').html('');
-    $('.container').css({"display": 'block'});
+  })
+
+  $('.btn-sign-up').on('click', function(){
+    //$('.start-options').html('');
+    $('.display').text('')
+    $('.start-options').css({"display": 'none'});
+    $('.sign-up').css({"display": 'block'});
   });
-  
-  $('.create-account').on('click', function(){
+
+  $('.btn-create-account').on('click', function(){
     if($('.first-name').val() === '' || $('.last-name').val() === '' || $('.email').val() === '' 
       || $('.password').val() === '' || $('.password-check').val() === ''){
       $('.display').text('Missing required fields');
-    } else if (localStorage[$('.email').val()] !== undefined){
+    } else 
+    if (localStorage[$('.email').val()] !== undefined){
       $('.display').text('This email is already being used');
     } else if ($('.password').val() !== $('.password-check').val()){
       $('.display').text('Password does not match');
     } else {
+      $('.display').text('');
       var accountObj = {};
       accountObj.firstName = $('.first-name').val();
       accountObj.lastName = $('.last-name').val();
       accountObj.email = $('.email').val();
       accountObj.password = $('.password').val();
       localStorage.setItem($('.email').val(), JSON.stringify(accountObj));
+
+      $('.sign-up').css({"display": 'none'});
+      $('.account-created').css({"display": 'block'});
       console.log(localStorage[$('.email').val()]);
     }
-    // else {
-    //   if($('.password').val() === $('.password-check').val()){
-    //     var accountObj = {};
-    //     accountObj.firstName = $('.first-name').val();
-    //     accountObj.lastName = $('.last-name').val();
-    //     accountObj.email = $('.email').val();
-    //     accountObj.password = $('.password').val();
-    //     localStorage.setItem($('.email').val(), JSON.stringify(accountObj));
-    //     console.log(localStorage[$('.email').val()]);
+    
+  });
 
-    //   } else {
-    //     $('.display').text('Password does not match');
-    //   }
-    //}
-   //  var accountObj = {};
-   //  accountObj.firstName = $('.first-name').val();
-   //  accountObj.lastName = $('.last-name').val();
-   //  accountObj.email = $('.email').val();
-   //  accountObj.password = $('.password').val();
-   //  localStorage.setItem($('.email').val(), JSON.stringify(accountObj));
-   //  //localStorage.setItem(accountObj, $('.email').val());
-   //  var myItemInStorage = localStorage.getItem($('.email').val());
-   // console.log(myItemInStorage);
-   // console.log(JSON.parse(myItemInStorage));
-   //  //console.log($('.email').val(), JSON.stringify(myItemInStorage));
-   //  for(key in localStorage){
-   //    console.log(localStorage[key]);
-   //  }
-  })
+  $('.back-home').on('click', function(){
+    $('.account-created').css({"display": 'none'});
+    $('.start-options').css({"display": 'block'});
+  });
+
+  $('.btn-log-in').on('click', function(){
+    //$('.start-options').css({"display": 'none'});
+
+    if(localStorage.getItem($('.log-in-email').val()) === null){
+      $('.display').text('Your email or password is incorrect. Please try again.');
+    } else {
+      var userObj = JSON.parse(localStorage[$('.log-in-email').val()]);
+      var password = userObj.password;
+      if($('.log-in-password').val() !== password){
+        $('.display').text('Your email or password is incorrect. Please try again.');
+      } else {
+        $('.display').text('');
+        loggedInUserObj.email = localStorage[$('.log-in-email').val()];
+        loggedInUserObj.password = password;
+        $('.start-options').css({"display": 'none'});
+        //$('.display').text('Logged in!');
+        $('.my-account').css({"display": 'block'});
+      }
+    }
+
+
+  });
+  $('.btn-delete-account').on('click', function(){
+    $('.my-account').css({"display": 'none'});
+    $('.delete-account').css({"display": 'block'});
+  });
+
+  $('.final-delete').on('click', function(){
+    if(localStorage.getItem($('.delete-email').val()) === null || localStorage.getItem($('.delete-email').val()) !== loggedInUserObj.email){
+      $('.display').text('Your email or password is incorrect. Please try again.')
+    } else {
+      var userObj = JSON.parse(localStorage[$('.delete-email').val()]);
+      var password = userObj.password;
+      if($('.delete-password').val() !== password){
+        $('.display').text('Your email or password is incorrect. Please try again.')
+      } else {
+        $('.display').text('');
+        localStorage.removeItem($('.delete-email').val());
+        $('.delete-account').css({"display": 'none'});
+        $('.start-options').css({"display": 'block'});
+
+      }
+    }
+  });
 
 
 });
