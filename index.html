@@ -3,6 +3,8 @@
   <head>
     <title>HREXT06 Cruddy App</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+
     <script
             src="https://code.jquery.com/jquery-3.3.1.js"
             integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
@@ -10,34 +12,35 @@
     <script src="app.js"></script>
   </head>
   <body>
+    <div class="title">myCruddyApp</div>
 
-  <div class="start-options">
+  <div class="start-options page">
 <!--     <input class="text-entry" type="text" placeholder="enter your information">
     <button class="btn-submit" type="button">save value</button>
     <button class="btn-delete" type="button">delete value</button> -->
-    <h>Sign In</h> <br>
+    <h style="font-size: 30px;">SIGN IN</h> <br> <br>
     <label for="log-in-email">Email</label> <br>
-    <input class="log-in-email" type="text" placeholder="Email"><br>
+    <input class="log-in-email input-box"type="text" ><br>
     <label for="log-in-password">Password</label><br>
-    <input class="log-in-password" type="password" placeholder="Password"><br>
+    <input class="log-in-password input-box" type="password" ><br><br><br><br><br>
 
-    <button class="btn-log-in" type="button">Log In</button><br>
-    <label for="btn-sign-up">Don't have an account?</label><br>
+    <button class="btn-log-in" type="button">Sign In</button><br><br>
+    <label for="btn-sign-up" style="font-size: 14px;">Don't have an account?</label><br>
     <button class="btn-sign-up" type="button">Create Account</button><br>
 
   </div>
-  <div class='sign-up'>
-    <h>Sign Up</h><br>
+  <div class='sign-up page'>
+    <div class="header">Sign Up</div><br>
     <label for="first-name">First name</label> <br>
-    <input class="first-name" type="text" placeholder="First name"><br>
+    <input class="first-name input-box" type="text"><br><br>
     <label for="last-name">Last name</label> <br>
-    <input class="last-name" type="text" placeholder="Last name"><br>
+    <input class="last-name input-box" type="text" ><br><br>
     <label for="email">Email</label> <br>
-    <input class="email" type="text" placeholder="Email"><br>
+    <input class="email input-box" type="text" ><br><br>
     <label for="password">Password</label> <br>
-    <input class="password" type="password" placeholder="Password"><br>
+    <input class="password input-box" type="password" ><br><br>
     <label for="password-check">Re-enter password</label> <br>
-    <input class="password-check" type="password" placeholder="Re-enter your password"><br>
+    <input class="password-check input-box" type="password" ><br><br><br>
     <button class="btn-create-account" type="button">Create Account</button>
   </div>
   <div class='account-created'>
@@ -48,11 +51,12 @@
     <button class="btn-delete-account" type="button">Delete account</button>
     
   </div>
-  <div class="delete-account">
+  <div class="delete-account page">
+    <div class="header">Delete Account</div><br>
     <label for="delete-email">Email</label> <br>
-    <input class="delete-email" type="text" placeholder="Email"><br>
+    <input class="delete-email input-box" type="text"><br><br>
     <label for="delete-password">Password</label><br>
-    <input class="delete-password" type="password" placeholder="Password"><br>
+    <input class="delete-password input-box" type="password" ><br><br><br><br>
     <button class="final-delete" type="button">Delete account</button>
   </div>
   <div class="display">

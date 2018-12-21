@@ -1,3 +1,13 @@
+body {
+	background-color: #F0F8FF;
+}
+.title{
+	text-align: center;
+	font-size: 50px;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	font-family: 'Indie Flower', cursive;
+}
 .sign-up {
 	display : none;
 }
@@ -13,3 +23,66 @@
 .delete-account{
 	display : none;
 }
+.header{
+	font-size: 30px;
+	text-align: center;
+}
+.input-box{
+	height: 35px;
+	width: 400px;
+	font-size: 20px;
+}
+.page{
+	margin-left: 450px;
+	/*border:1px solid black;*/
+	padding-right: 20px;
+	padding-left: 20px;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	width: 410px;
+	background-color: white;
+}
+.btn-log-in{
+	font-size: 25px;
+	width: 400px;
+}
+.btn-sign-up{
+	background:none;
+    border:none;
+    margin:0;
+    padding:0;
+    cursor: pointer;
+    text-decoration: underline;
+}
+.btn-create-account {
+	font-size: 25px;
+	width: 400px;
+}
+.account-created {
+	text-align: center;
+	font-size: 25px;
+}
+.back-home{
+	width: 200px;
+	font-size: 20px;
+}
+.btn-delete-account{
+	margin-left: 600px;
+	font-size: 20px;
+    tex-align: center;
+}
+.final-delete{
+	margin-left: 130px;
+	font-size: 20px;
+    tex-align: center;
+}
+/*.delete-account{
+    margin-left: 450px;
+	border:1px solid black;
+	padding-right: 20px;
+	padding-left: 20px;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	width: 410px;
+
+}*/
